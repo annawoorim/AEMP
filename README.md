@@ -1,6 +1,6 @@
-##Layout
+## Layout
 
-###2 panel
+### 2 panel
 
 * Left panel: map
 * Right panel: narrative text
@@ -18,7 +18,7 @@
 * 	Right top panel: show pin details
 * 	Right bottom panel: gallery info
 
-##Map boundaries
+## Map boundaries
 
 * Unbounded map (can use Mapbox)
 * Manually drawn boundary (just encompasses all the galleries)
@@ -26,12 +26,12 @@
 * Boyle Heights Arts District boundary
 * Boyle Heights zip code boundary
 
-##Gallery Info
+## Gallery Info
 * Gallery name
 * Building owner
 * Gallery owner (“gallerist”)
 	
-##Mapping parameters
+## Mapping parameters
 
 * Galleries that already left 
 * Galleries that stayed
@@ -40,7 +40,7 @@
 * Galleries whose money comes locally
 * Community art spaces that were impacted by new galleries moving in
 
-##Narrative
+## Narrative
 
 * Intro maps in beginning
 * Art washing in Boyle Heights
