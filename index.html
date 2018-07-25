@@ -10,6 +10,12 @@
 		<meta name="author" content="Boyle Heights" />
 		<link rel="shortcut icon" href=""> 
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   		        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   				crossorigin=""/>
+   		<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   				integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   				crossorigin=""></script>
 		<script src="https://d3js.org/d3.v4.min.js"></script>
 		<script src="https://d3js.org/topojson.v1.min.js"></script>
 		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -21,8 +27,21 @@
 	</header>
 
 	<section class="map">
-		<div class="view">Left</div>
+		<div class="view">
+			<div id="mapid"></div>
+		</div>
 		<div class="view">Right</div>
 	</section>
+
+	<script>
+		var mymap = L.map('mapid').setView([34.047481, -118.223645], 15);
+		L.tileLayer('https://api.mapbox.com/styles/v1/madebyc/cjjp9rhl80uvg2ro4hwbha51i/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ', 
+		{
+		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		    maxZoom: 18,
+		    
+		    accessToken: 'pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ'
+		}).addTo(mymap);
+	</script>
 
 </html>
