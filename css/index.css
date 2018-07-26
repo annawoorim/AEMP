@@ -24,19 +24,19 @@ a:hover,
 a:active {
 	color: #333;
 }
-
+.animation{
+	-webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+         -o-animation: fadein 4s; /* Opera < 12.1 */
+            animation: fadein 4s;
+}
 .title {
 	display: flex;
 	justify-content: center;
 	font-size: 3em;
 	color: #ffa900;
 	margin: .5em;
-	-webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 4s; /* Firefox < 16 */
-        -ms-animation: fadein 4s; /* Internet Explorer */
-         -o-animation: fadein 4s; /* Opera < 12.1 */
-            animation: fadein 4s;
-	
 }
 .sub-title {
 	text-align: center;
@@ -44,26 +44,21 @@ a:active {
 	font-size: 1.2em;
 	font-weight: 400;
 	margin: 0;
-	-webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 4s; /* Firefox < 16 */
-        -ms-animation: fadein 4s; /* Internet Explorer */
-         -o-animation: fadein 4s; /* Opera < 12.1 */
-            animation: fadein 4s;
-	
 }
 .map {
 	display: flex;
 	-ms-flex:50%;
 	flex: 50%;
 	margin: 2em 0 0 1em;
-
 }
 .view{
 	-ms-flex:50%;
 	flex: 50%;
-
 }
-#mapid { height: 80vh; }
+#mapid { 
+	height: 80vh; 
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

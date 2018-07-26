@@ -1,47 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Boyle Heights Against Artwashing & Displacement</title>
-		<meta name="description" content="BHAAD + AEMP: Spaces of Displacment" />
-		<meta name="keywords" content="BHAAD AEMP" />
-		<meta name="author" content="Boyle Heights" />
-		<link rel="shortcut icon" href=""> 
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-   		        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-   				crossorigin=""/>
-   		<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-   				integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-   				crossorigin=""></script>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-		<script src="https://d3js.org/topojson.v1.min.js"></script>
-		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-	</head>
-	</body>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Boyle Heights Against Artwashing & Displacement</title>
+	<meta content="BHAAD + AEMP: Spaces of Displacment" name="description">
+	<meta content="BHAAD AEMP" name="keywords">
+	<meta content="Boyle Heights" name="author">
+	<link href="" rel="shortcut icon">
+	<link href="css/index.css" rel="stylesheet" type="text/css">
+	<link href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" rel="stylesheet">
+	<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js">
+	</script>
+	<script src="https://d3js.org/d3.v4.min.js">
+	</script>
+	<script src="https://d3js.org/topojson.v1.min.js">
+	</script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js">
+	</script>
+</head>
+<body>
 	<header>
-		<h1 class="title"> Spaces of Displacement</h1>
-		<h2 class="sub-title"> A project by Boyle Heights Against Artwashing and Displacement in collaboration with Anti Eviction Mapping Project </h2>
+		<h1 class="title animation">Spaces of Displacement</h1>
+		<h2 class="sub-title animation">A project by Boyle Heights Against Artwashing and Displacement in collaboration with Anti Eviction Mapping Project</h2>
 	</header>
-
 	<section class="map">
 		<div class="view">
 			<div id="mapid"></div>
 		</div>
-		<div class="view">Right</div>
+		<div class="view">
+			Right
+		</div>
 	</section>
-
 	<script>
-		var mymap = L.map('mapid').setView([34.047481, -118.223645], 15);
-		L.tileLayer('https://api.mapbox.com/styles/v1/madebyc/cjjp9rhl80uvg2ro4hwbha51i/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ', 
-		{
-		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		    maxZoom: 18,
-		    
-		    accessToken: 'pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ'
-		}).addTo(mymap);
-	</script>
+	       //set up base map
+	       var mymap = L.map('mapid').setView([34.041581, -118.221645], 15);
+	       L.tileLayer('https://api.mapbox.com/styles/v1/madebyc/cjk21tgvq2fmg2sqzywrcnnpl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ', 
+	       {
+	           attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap<\/a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA<\/a>, Imagery © <a href="https://www.mapbox.com/">Mapbox<\/a>',
+	           minZoom: 14,
+	           id: 'mapbox.streets',
+	           trackResize: false,
+	           accessToken: 'pk.eyJ1IjoibWFkZWJ5YyIsImEiOiJjampwOWYyNnA3d240M3ZsZnIwODN4ZGl5In0.XFXCZd4wqKFsB7jjH0dUOQ'
+	       }).addTo(mymap);
 
+	       //d3 [markers]
+	       d3.csv('GalleryOwnership Data.csv', function(error, data) {
+
+	       if (error) throw error;
+	       data.forEach(function (row, i){
+	           console.log(row['Gallery Name']);
+	           var marker = L.marker([row.Latitude, row.Longitude]).addTo(mymap);
+	           marker.bindPopup(row['Gallery Name']).openPopup();
+	       });
+
+
+	       }); //end d3 
+	</script>
+</body>
 </html>
