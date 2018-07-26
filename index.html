@@ -50,9 +50,13 @@
 
 	       if (error) throw error;
 	       data.forEach(function (row, i){
-	           console.log(row['Gallery Name']);
 	           var marker = L.marker([row.Latitude, row.Longitude]).addTo(mymap);
-	           marker.bindPopup(row['Gallery Name']).openPopup();
+	           marker.bindPopup(
+	           	"<b>Gallery Name: </b>" + row['Gallery Name'] +
+	           	"<br><b>Address: </b>" + row['Gallery Address'] +
+	           	"<br><b>Gallerist: </b>" + row['Gallerist'] +
+	           	"<br><b>Owner: </b>" + row['Owner Name']
+	           	).openPopup();
 	       });
 
 
