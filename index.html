@@ -30,7 +30,7 @@
 			<div id="mapid"></div>
 		</div>
 		<div class="view">
-			Right
+			<span id="story">Right</span>
 		</div>
 	</section>
 	<script>
@@ -56,7 +56,16 @@
 	           	"<br><b>Gallerist: </b>" + row['Gallerist'] +
 	           	"<br><b>Owner: </b>" + row['Owner Name']
 	           	).openPopup();
-	       });
+
+	           marker.on('click', function(e){
+	           	
+	           	var story = document.getElementById("story");
+	           	story.innerHTML = row['Gallery Name'];
+
+
+	       		});//event listener onclick marker
+	       });//end for loop
+
 
 
 	       }); //end d3 
